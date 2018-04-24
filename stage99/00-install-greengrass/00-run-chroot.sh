@@ -1,5 +1,5 @@
 #!/bin/sh
 
-adduser --disabled-password -q --gecos "" ggc_core
+adduser --disabled-password -q --gecos "" ggc_user
 addgroup ggc_group
-adduser ggc_core ggc_group
+adduser ggc_user ggc_group
