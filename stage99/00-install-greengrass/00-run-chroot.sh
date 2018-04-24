@@ -7,7 +7,7 @@ adduser ggc_user ggc_group
 cat <<EOF >/etc/init.d/S02greengrass
 #!/bin/sh
 cd /greengrass/ggc/core
-./greengrassd $@
+./greengrassd \$@
 EOF
 chmod 755 /etc/init.d/S02greengrass
 
