@@ -27,11 +27,3 @@ if [ -d ${ROOTFS_DIR}/home/pi/aws-greengrass-samples ]; then
 else
   git clone git://github.com/aws-samples/aws-greengrass-samples ${ROOTFS_DIR}/home/pi/aws-greengrass-samples
 fi
-
-cat <<EOF >${ROOTFS_DIR}/etc/init.d/S02greengrassd
-#!/bin/bash
-cd /greengrass/ggc/core
-./greengrassd $@
-EOF
-chmod 755 ${ROOTFS_DIR}/etc/init.d/S02greengrassd
-ln -s /etc/init.d/S02greengrassd ${ROOTFS_DIR}/etc/rc5.d/
