@@ -6,6 +6,8 @@ adduser ggc_user ggc_group
 
 cat <<EOF >/etc/init.d/S02greengrass
 #!/bin/sh
+cp /boot/certs/* /greengrass/certs
+cp /boot/config/* /greengrass/config
 cd /greengrass/ggc/core
 ./greengrassd \$@
 EOF
