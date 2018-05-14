@@ -15,9 +15,11 @@ mkdir -p ${ROOTFS_DIR}/boot/greengrass/config
 ln -s /boot/greengrass/certs ${ROOTFS_DIR}/greengrass/certs
 ln -s /boot/greengrass/config ${ROOTFS_DIR}/greengrass/config
 # For twitch stream we want viewers to see our text BIG!
+# We also don't need to waste memory on GPU by default!
 cat <<EOF >>${ROOTFS_DIR}/boot/config.txt
 framebuffer_width=800
 framebuffer_height=400
+gpu_mem=16
 EOF
 
 # Grab samples which also has the dependencies checker utility.
