@@ -12,6 +12,10 @@ rm -rf ${ROOTFS_DIR}/greengrass/certs \
        ${ROOTFS_DIR}/greengrass/config
 mkdir -p ${ROOTFS_DIR}/boot/greengrass/certs
 mkdir -p ${ROOTFS_DIR}/boot/greengrass/config
+
+# copy root cert into /greengrass/certs
+cp files/root.ca.pem ${ROOTFS_DIR}/greengrass/certs
+
 # For twitch stream we want viewers to see our text BIG!
 # We also don't need to waste memory on GPU by default!
 cat <<EOF >>${ROOTFS_DIR}/boot/config.txt
