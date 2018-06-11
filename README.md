@@ -1,3 +1,7 @@
+# Grassbian Users
+
+[use this guide](./SETUP-GREENGRASS.md) to get started
+
 # pi-gen
 
 _Tool used to create the raspberrypi.org Raspbian images_
