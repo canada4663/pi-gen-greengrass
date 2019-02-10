@@ -21,9 +21,9 @@ cp files/root.ca.pem ${ROOTFS_DIR}/greengrass/certs/
 # For twitch stream we want viewers to see our text BIG!
 # We also don't need to waste memory on GPU by default!
 cat <<EOF >>${ROOTFS_DIR}/boot/config.txt
-framebuffer_width=800
-framebuffer_height=400
-gpu_mem=16
+framebuffer_width=1280
+framebuffer_height=720
+gpu_mem=128
 EOF
 
 # Grab samples which also has the dependencies checker utility.
