@@ -1,7 +1,0 @@
-<<<<<<< HEAD:stage99/EXPORT_NOOBS
-NOOBS_NAME="Grassbian"
-NOOBS_DESCRIPTION="A port of Debian Stretch for the Raspberry Pi (AWS Lambda Greengrass Core)"
-=======
-NOOBS_NAME="Raspbian Full"
-NOOBS_DESCRIPTION="A port of Debian with desktop and recommended applications"
->>>>>>> upstream/master:stage5/EXPORT_NOOBS
