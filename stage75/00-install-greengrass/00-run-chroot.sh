@@ -8,8 +8,8 @@ cat <<EOF >/etc/init.d/S02greengrass
 #!/bin/sh
 mkdir -p /greengrass/certs
 mkdir -p /greengrass/config
-cp /boot/certs/* /greengrass/certs/
-cp /boot/config/* /greengrass/config/
+cp /boot/greengrass/certs/* /greengrass/certs/
+cp /boot/greengrass/config/* /greengrass/config/
 cd /greengrass/ggc/core
 ./greengrassd \$@
 EOF
