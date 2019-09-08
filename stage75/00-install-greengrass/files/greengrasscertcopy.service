@@ -1,0 +1,8 @@
+[Unit]
+Description=Greengrass Certificate Copy at Boot
+
+[Service]
+ExecStart=/greengrass/greengrasscertcopy.sh
+
+[Install]
+WantedBy=multi-user.target

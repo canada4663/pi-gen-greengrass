@@ -5,7 +5,7 @@ fs.protected_hardlinks = 1
 fs.protected_symlinks = 1
 EOF
 
-wget -O files/greengrass.tar.gz https://d1onfpft10uf5o.cloudfront.net/greengrass-core/downloads/1.7.0/greengrass-linux-armv7l-1.7.0.tar.gz
+wget -O files/greengrass.tar.gz ${GGC}
 wget -O files/root.ca.pem https://www.amazontrust.com/repository/AmazonRootCA1.pem
 
 sed -i 's/$/\ cgroup_enable=memory\ cgroup_memory=1/' ${ROOTFS_DIR}/boot/cmdline.txt
@@ -17,6 +17,11 @@ rm -rf ${ROOTFS_DIR}/greengrass/certs \
        ${ROOTFS_DIR}/greengrass/config
 mkdir -p ${ROOTFS_DIR}/boot/greengrass/certs
 mkdir -p ${ROOTFS_DIR}/boot/greengrass/config
+
+# Install greengrass service files
+cp files/greengrass.service ${ROOTFS_DIR}/etc/systemd/system/greengrass.service
+cp files/greengrasscertcopy.service ${ROOTFS_DIR}/etc/systemd/system/greengrasscertcopy.service
+cp files/greengrasscertcopy.sh ${ROOTFS_DIR}/greengrass/greengrasscertcopy.sh
 
 # copy root cert into /greengrass/certs
 cp files/root.ca.pem ${ROOTFS_DIR}/boot/greengrass/certs/
