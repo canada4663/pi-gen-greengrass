@@ -4,4 +4,5 @@ DLR='https://d1onfpft10uf5o.cloudfront.net/greengrass-ml-installers/dlr/dlr-1.0-
 MXNET='https://d1onfpft10uf5o.cloudfront.net/greengrass-ml-installers/mxnet/ggc-mxnet-v1.2.1-python-raspi.tar.gz'
 TF='https://d1onfpft10uf5o.cloudfront.net/greengrass-ml-installers/tf/greengrass_ML@Edge_TF_v1_4_0_installer_cp27_raspi3_armv7.tar.gz'
 CHAINER='https://s3.amazonaws.com/chainer-greengrass-packages/chainer-installer-for-raspi-v4.0.0.tar.gz'
-export GGC GGC_ML_SDK DLR MXNET TF
+KVS='https://github.com/awslabs/amazon-kinesis-video-streams-producer-sdk-cpp/archive/2.0.1.tar.gz'
+export GGC GGC_ML_SDK DLR MXNET TF KVS
