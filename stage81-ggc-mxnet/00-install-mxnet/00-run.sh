@@ -1,9 +1,12 @@
 #!/bin/bash
 
+wget -o /tmp/mxnet.tar.gz ${MXNET}
+
 #extract mxnet tarball
-if [ -f files/ggc-mxnet-v1.2.1-python-raspi.tar.gz ]; then
+if [ -f /tmp/mxnet.tar.gz ]; then
   mkdir -p ${ROOTFS_DIR}/home/pi/ml/
-  tar Czxf ${ROOTFS_DIR}/home/pi/ml/ files/ggc-mxnet-v1.2.1-python-raspi.tar.gz 
+  tar Czxf ${ROOTFS_DIR}/home/pi/ml/ /tmp/mxnet.tar.gz 
+  mv ${ROOTFS_DIR}/home/pi/ml/ggc-mxnet* ${ROOTFS_DIR}/home/pi/ml/ggc-mxnet
 else
-  echo "files/ggc-* does not exist"
+  echo "files/mxnet.tar.gz does not exist"
 fi
