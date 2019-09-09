@@ -8,3 +8,7 @@ SKIP_IMAGES
 *-pc
 apt-cacher-ng/
 *greengrass.tar.gz
+*.swo
+*.swp
+.*.swp
+.*.swo
