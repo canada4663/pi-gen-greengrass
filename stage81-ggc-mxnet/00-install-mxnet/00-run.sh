@@ -1,6 +1,6 @@
 #!/bin/bash
 
-wget -o /tmp/mxnet.tar.gz ${MXNET}
+wget -O /tmp/mxnet.tar.gz ${MXNET}
 
 #extract mxnet tarball
 if [ -f /tmp/mxnet.tar.gz ]; then
