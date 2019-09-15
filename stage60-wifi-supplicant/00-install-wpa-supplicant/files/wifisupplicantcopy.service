@@ -1,0 +1,8 @@
+[Unit]
+Description=Copy WiFi Supplicant at Boot
+
+[Service]
+ExecStart=/opt/wifisupplicantcopy.sh
+
+[Install]
+WantedBy=multi-user.target
