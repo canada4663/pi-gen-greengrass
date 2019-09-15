@@ -1,0 +1,39 @@
+version: 0.2
+
+env:
+  variables:
+     IMG_NAME: "grassbian"
+     ENABLE_SSH: "1"
+     FIRST_USER_PASS: "pi"
+     WPA_ESSID: "ESSID_REPLACE"
+     WPA_PASSWORD: "PASSWORD_REPLACE"
+     WPA_COUNTRY: "COUNTRY_REPLACE"
+  #parameter-store:
+     # key: "value"
+  #git-credential-helper: yes
+
+phases:
+  install:
+    commands:
+      - apt-get update
+      - apt-get install -y coreutils quilt parted qemu-user-static debootstrap zerofree pxz zip dosfstools bsdtar libcap2-bin grep rsync xz-utils file git curl xxd make
+  #pre_build:
+    #commands:
+      # - command
+  build:
+    commands:
+      ./build.sh -c extliburls
+      # - command
+  #post_build:
+    #commands:
+      # - command
+artifacts:
+  files:
+    - './deploy/**/*'
+    # - location
+  #name: $(date +%Y-%m-%d)
+  #discard-paths: yes
+  #base-directory: location
+#cache:
+  #paths:
+    # - paths
