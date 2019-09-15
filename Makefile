@@ -48,9 +48,9 @@ kvsonly: skip_all skip_images_all
 	rm stage78-kinesis-video-streams/SKIP_IMAGES
 	sudo CLEAN=1 ./build.sh -c extliburls
 
-kvsall: skip_all skip_images_all
-	rm stage78-kinesis-video-streams/SKIP
-	rm stage78-kinesis-video-streams/SKIP_IMAGES
+kvsall: skip_all skip_images_all rm_skip_all
+	rm -f stage78-kinesis-video-streams/SKIP
+	rm -f stage78-kinesis-video-streams/SKIP_IMAGES
 	sudo CLEAN=1 ./build.sh -c extliburls
 
 all: skip_all skip_images_all rm_skip_all rm_skip_images_all
