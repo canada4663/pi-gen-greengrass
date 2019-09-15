@@ -18,6 +18,7 @@ diskutil mountDisk ${2}
 #Copy Files
 cp ${3}/certs/* /Volumes/boot/greengrass/certs/
 cp ${3}/config/* /Volumes/boot/greengrass/config/
+mkdir -p /Volumes/boot/opt
 cp ${4} /Volumes/boot/opt/wpa_supplicant.conf
 
 #Unmount Disk

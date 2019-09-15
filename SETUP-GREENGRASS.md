@@ -1,6 +1,24 @@
-# How to use the grassbian image
+# How to use the grassbian image (from Mac OSX)
 
-You can get the latest image [here](https://github.com/iopipe/pi-gen-greengrass/releases)
+
+1. Clone this repository:
+ `https://github.com/canada4663/pi-gen-greengrass.git` 
+2. Unzip downloaded image in repository base directory.
+3. Download Greengrass Core certificate and config bundle.  This can be found from AWS IoT Greengrass console --> Security --> Certificates --> <Select Your Certificate> --> Download from Action Menu
+4. Unzip Greengrass Core cerficate and config bundle.  Note the path to the directory produced.
+5. Copy and edit WPA supplicant file to match your wifi configuration:
+`cp wpa_supplicant.conf.sample wpa_supplicant.conf.sample`
+6. Plug-in SD card into local computer, inspect diskutil to identify the SD card path - external / physical disk:
+`diskutil list | grep external`
+**DO NOT USE INTERNAL DISK**
+7. Run helper script to burn SD card and apply configuration to /boot volume:
+`source ./osx_burn_config.sh <image file.img> <SD card path> <Greengrass config path> <wpa-supplicant file>`
+8. (optional) Remount drive and inspect contents of boot volume to ensure everything in place.
+9. Put SD Card in Pi, and boot it up.  Check that Greengrass service is running:
+`ps -ef | grep green`
+
+
+### Old Instructions for Reference
 
 1. Grab a tool like [etcher](https://etcher.io) or any tool that burns images to SD cards
 2. Burn the image
