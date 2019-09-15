@@ -1,5 +1,5 @@
 #GGC Downloads: https://docs.aws.amazon.com/greengrass/latest/developerguide/what-is-gg.html#gg-downloads
-GGC='https://d1onfpft10uf5o.cloudfront.net/greengrass-core/downloads/1.9.2/greengrass-linux-armv7l-1.9.2.tar.gz'
+GGC='https://d1onfpft10uf5o.cloudfront.net/greengrass-core/downloads/1.9.3/greengrass-linux-armv7l-1.9.3.tar.gz'
 GGC_ML_SDK='https://d1onfpft10uf5o.cloudfront.net/greengrass-ml-sdk/downloads/python/2.7/greengrass-machine-learning-python-sdk-1.0.0.tar.gz'
 DLR='https://d1onfpft10uf5o.cloudfront.net/greengrass-ml-installers/dlr/dlr-1.0-py2-armv7l.tar.gz'
 MXNET='https://d1onfpft10uf5o.cloudfront.net/greengrass-ml-installers/mxnet/ggc-mxnet-v1.2.1-python-raspi.tar.gz'
