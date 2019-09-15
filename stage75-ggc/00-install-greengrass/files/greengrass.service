@@ -5,6 +5,7 @@ Description=Greengrass Daemon
 Type=forking
 PIDFile=/var/run/greengrassd.pid
 Restart=on-failure
+RestartSec=30
 ExecStart=/greengrass/ggc/core/greengrassd start
 ExecReload=/greengrass/ggc/core/greengrassd restart
 ExecStop=/greengrass/ggc/core/greengrassd stop
