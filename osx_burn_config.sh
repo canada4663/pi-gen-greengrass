@@ -10,7 +10,7 @@
 diskutil unmountDisk ${2}
 
 #Burn SD Card
-sudo dd if=${1} of=${2} bs=2M
+sudo dd if=${1} of=${2} bs=2m
 
 #Mount Disk
 diskutil mountDisk ${2}
