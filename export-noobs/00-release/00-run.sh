@@ -10,6 +10,9 @@ install -v		files/release_notes.txt		"${NOOBS_DIR}/"
 
 tar -v -c -C		files/marketing			-f "${NOOBS_DIR}/marketing.tar" .
 
+BOOT_SHASUM="$(sha256sum "${NOOBS_DIR}/boot.tar.xz" | cut -f1 -d' ')"
+ROOT_SHASUM="$(sha256sum "${NOOBS_DIR}/root.tar.xz" | cut -f1 -d' ')"
+
 BOOT_SIZE="$(xz --robot -l "${NOOBS_DIR}/boot.tar.xz"  | grep totals | cut -f 5)"
 ROOT_SIZE="$(xz --robot -l "${NOOBS_DIR}/root.tar.xz"  | grep totals | cut -f 5)"
 

@@ -53,5 +53,12 @@ kvsall: skip_all skip_images_all rm_skip_all
 	rm -f stage78-kinesis-video-streams/SKIP_IMAGES
 	sudo CLEAN=1 ./build.sh -c extliburls
 
+ggcall: skip_all skip_images_all rm_skip_all
+	touch stage76-ml-base/SKIP stage77-opencv3/SKIP
+	touch stage78-kinesis-video-streams/SKIP
+	touch stage81-ggc-mxnet/SKIP stage82-ggc-tf/SKIP
+	rm -f stage75-ggc/SKIP_IMAGES
+	sudo CLEAN=1 ./build.sh -c extliburls
+
 all: skip_all skip_images_all rm_skip_all rm_skip_images_all
 	sudo CLEAN=1 ./build.sh -c extliburls
