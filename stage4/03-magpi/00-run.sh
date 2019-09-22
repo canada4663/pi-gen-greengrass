@@ -11,11 +11,5 @@ fi
 
 file "files/$magpi_latest" | grep -q "PDF document"
 
-<<<<<<< HEAD
-install -v -o 1000 -g 1000 -d "${ROOTFS_DIR}/home/pi/MagPi"
-install -v -o 1000 -g 1000 -m 644 "files/$magpi_latest" "${ROOTFS_DIR}/home/pi/MagPi/"
-
-=======
 install -v -o 1000 -g 1000 -d "${ROOTFS_DIR}/home/${FIRST_USER_NAME}/MagPi"
 install -v -o 1000 -g 1000 -m 644 "files/$magpi_latest" "${ROOTFS_DIR}/home/${FIRST_USER_NAME}/MagPi/"
->>>>>>> upstream/master

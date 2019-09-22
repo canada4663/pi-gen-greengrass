@@ -22,9 +22,5 @@ python-picraft python3-picraft
 pprompt
 piwiz
 rp-prefapps
-<<<<<<< HEAD
-libav-tools
-=======
 ffmpeg
->>>>>>> upstream/master
 vlc
