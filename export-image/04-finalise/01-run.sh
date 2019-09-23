@@ -18,7 +18,6 @@ fi
 
 rm -f "${ROOTFS_DIR}/etc/apt/apt.conf.d/51cache"
 rm -f "${ROOTFS_DIR}/usr/bin/qemu-arm-static"
-<<<<<<< HEAD
 
 rm -f "${ROOTFS_DIR}/etc/apt/sources.list~"
 rm -f "${ROOTFS_DIR}/etc/apt/trusted.gpg~"
@@ -48,8 +47,6 @@ rm -f "${ROOTFS_DIR}/etc/vnc/updateid"
 
 update_issue "$(basename "${EXPORT_DIR}")"
 install -m 644 "${ROOTFS_DIR}/etc/rpi-issue" "${ROOTFS_DIR}/boot/issue.txt"
-install files/LICENSE.oracle "${ROOTFS_DIR}/boot/"
-=======
 
 if [ "${USE_QEMU}" != "1" ]; then
 	if [ -e "${ROOTFS_DIR}/etc/ld.so.preload.disabled" ]; then
@@ -84,7 +81,6 @@ find "${ROOTFS_DIR}/var/log/" -type f -exec cp /dev/null {} \;
 
 rm -f "${ROOTFS_DIR}/root/.vnc/private.key"
 rm -f "${ROOTFS_DIR}/etc/vnc/updateid"
->>>>>>> upstream/master
 
 update_issue "$(basename "${EXPORT_DIR}")"
 install -m 644 "${ROOTFS_DIR}/etc/rpi-issue" "${ROOTFS_DIR}/boot/issue.txt"
