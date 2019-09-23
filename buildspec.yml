@@ -16,8 +16,9 @@ phases:
   install:
     commands:
       - dpkg --add-architecture i386
-      - apt-get update
-      - apt-get install -y coreutils quilt parted qemu-user-static:i386 debootstrap zerofree pxz zip dosfstools bsdtar libcap2-bin grep rsync xz-utils file git curl xxd make kmod
+      - apt update
+      - apt upgrade -y
+      - apt install -y coreutils quilt parted qemu-user-static:i386 debootstrap zerofree pxz zip dosfstools bsdtar libcap2-bin grep rsync xz-utils file git curl xxd make kmod
   #pre_build:
     #commands:
       # - command
