@@ -2,33 +2,28 @@
 
 [use this guide](./SETUP-GREENGRASS.md) to get started
 
+## `NOTE ON Non-ARM 64 Bit Systems`
+Please note there is currently an issue when compiling with a 64 Bit OS. See https://github.com/RPi-Distro/pi-gen/issues/271
+
+Recommend building on AWS EC2 A1 Instance for native ARM compilation
+
+
+
 # pi-gen
 
 _Tool used to create the raspberrypi.org Raspbian images_
 
-
-## Dependencies
-
-pi-gen runs on Debian based operating systems. Currently it is only supported on
-either Debian Stretch or Ubuntu Xenial and is known to have issues building on
-earlier releases of these systems.
-=======
 ## Dependencies
 
 pi-gen runs on Debian based operating systems. Currently it is only supported on
 either Debian Buster or Ubuntu Xenial and is known to have issues building on
 earlier releases of these systems. On other Linux distributions it may be possible
 to use the Docker build described below.
->>>>>>> upstream/master
 
 To install the required dependencies for pi-gen you should run:
 
 ```bash
-<<<<<<< HEAD
-apt-get install coreutils quilt parted qemu-user-static debootstrap zerofree pxz zip \
-=======
 apt-get install coreutils quilt parted qemu-user-static debootstrap zerofree zip \
->>>>>>> upstream/master
 dosfstools bsdtar libcap2-bin grep rsync xz-utils file git curl
 ```
 
@@ -93,8 +88,6 @@ The following environment variables are supported:
    Setting to '1' enables the QEMU mode - creating an image that can be mounted via QEMU for an emulated
    environment. These images include "-qemu" in the image file name.
 
-<<<<<<< HEAD
-=======
  * `LOCALE_DEFAULT` (Default: "en_GB.UTF-8" )
 
    Default system locale.
@@ -111,7 +104,6 @@ The following environment variables are supported:
 
    Default keyboard layout.
 
->>>>>>> upstream/master
  * `FIRST_USER_NAME` (Default: "pi" )
 
    Username for the first user
@@ -121,28 +113,16 @@ The following environment variables are supported:
    Password for the first user
 
  * `WPA_ESSID`, `WPA_PASSWORD` and `WPA_COUNTRY` (Default: unset)
-<<<<<<< HEAD
 
    If these are set, they are use to configure `wpa_supplicant.conf`, so that the raspberry pi can automatically connect to a wifi network on first boot.
 
  * `ENABLE_SSH` (Default: `0`)
 
-=======
-
-   If these are set, they are use to configure `wpa_supplicant.conf`, so that the raspberry pi can automatically connect to a wifi network on first boot.
-
- * `ENABLE_SSH` (Default: `0`)
-
->>>>>>> upstream/master
    Setting to `1` will enable ssh server for remote log in. Note that if you are using a common password such as the defaults there is a high risk of attackers taking over you RaspberryPi.
 
  * `STAGE_LIST` (Default: `stage*`)
 
-<<<<<<< HEAD
-    If set, then instead of working through the numeric stages in order, this list will be followed. For example setting to `stage0 stage1 mystage stage2` will run the contents of `mystage` before stage2. An absolute or relative path can be given for stages outside the pi-gen directory.
-=======
     If set, then instead of working through the numeric stages in order, this list will be followed. For example setting to `"stage0 stage1 mystage stage2"` will run the contents of `mystage` before stage2. Note that quotes are needed around the list. An absolute or relative path can be given for stages outside the pi-gen directory.
->>>>>>> upstream/master
 
 A simple example for building Raspbian:
 
@@ -227,15 +207,12 @@ continue:
 CONTINUE=1 ./build-docker.sh
 ```
 
-<<<<<<< HEAD
-=======
 To examine the container after a failure you can enter a shell within it using:
 
 ```bash
 sudo docker run -it --privileged --volumes-from=pigen_work pi-gen /bin/bash
 ```
 
->>>>>>> upstream/master
 After successful build, the build container is by default removed. This may be undesired when making incremental changes to a customized build. To prevent the build script from remove the container add
 
 ```bash
@@ -344,12 +321,9 @@ follows:
 
 # Troubleshooting
 
-<<<<<<< HEAD
-=======
 ## `64 Bit Systems`
 Please note there is currently an issue when compiling with a 64 Bit OS. See https://github.com/RPi-Distro/pi-gen/issues/271
 
->>>>>>> upstream/master
 ## `binfmt_misc`
 
 Linux is able execute binaries from other architectures, meaning that it should be
