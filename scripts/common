@@ -9,19 +9,19 @@ bootstrap(){
 
 	export http_proxy=${APT_PROXY}
 
-	if [ "$(uname -m)" !=  "armhf" ] && [ "$(uname -m)" !=  "aarch64" ]; then
-		BOOTSTRAP_CMD=qemu-debootstrap
-	fi
+	#if [ "$(uname -m)" !=  "armhf" ] && [ "$(uname -m)" !=  "aarch64" ]; then
+	#	BOOTSTRAP_CMD=qemu-debootstrap
+	#fi
 
 	BOOTSTRAP_ARGS+=(--arch armhf)
 	BOOTSTRAP_ARGS+=(--components "main,contrib,non-free")
 	BOOTSTRAP_ARGS+=(--keyring "${STAGE_DIR}/files/raspberrypi.gpg")
 	BOOTSTRAP_ARGS+=("$@")
 
-	setarch linux32 capsh --drop=cap_setfcap -- "${BOOTSTRAP_CMD}" "${BOOTSTRAP_ARGS[@]}" || true
+	"${BOOTSTRAP_CMD}" "${BOOTSTRAP_ARGS[@]}" || true
 
 	if [ -d "$2/debootstrap" ]; then
-		rmdir "$2/debootstrap"
+		rm -Rf "$2/debootstrap"
 	fi
 }
 export -f bootstrap
