@@ -47,6 +47,7 @@ ROOT_LENGTH=$(echo "$PARTED_OUT" | grep -e '^2:' | cut -d':' -f 4 | tr -d B)
 
 
 df -h
+ls -lart work/*-grassbian-buster/export-image/
 ls -lart /dev/
 BOOT_DEV=$(losetup --show -v -f -o "${BOOT_OFFSET}" --sizelimit "${BOOT_LENGTH}" "${IMG_FILE}")
 ROOT_DEV=$(losetup --show -f -o "${ROOT_OFFSET}" --sizelimit "${ROOT_LENGTH}" "${IMG_FILE}")
