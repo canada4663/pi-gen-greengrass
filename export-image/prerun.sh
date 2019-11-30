@@ -50,12 +50,13 @@ mknod -m 660 /dev/loop1 b 7 1
 mknod -m 660 /dev/loop2 b 7 2
 mknod -m 660 /dev/loop3 b 7 3
 df -h
-ls -lart work/*-grassbian-buster/export-image/
 ls -lart /dev/
 BOOT_DEV=$(losetup --show -v -f -o "${BOOT_OFFSET}" --sizelimit "${BOOT_LENGTH}" "${IMG_FILE}")
 ROOT_DEV=$(losetup --show -f -o "${ROOT_OFFSET}" --sizelimit "${ROOT_LENGTH}" "${IMG_FILE}")
 echo "/boot: offset $BOOT_OFFSET, length $BOOT_LENGTH"
 echo "/:     offset $ROOT_OFFSET, length $ROOT_LENGTH"
+
+ls -lart work/2019-11-30-grassbian-buster/export-image/
 
 ROOT_FEATURES="^huge_file"
 for FEATURE in metadata_csum 64bit; do
