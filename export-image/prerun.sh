@@ -45,16 +45,16 @@ BOOT_LENGTH=$(echo "$PARTED_OUT" | grep -e '^1:' | cut -d':' -f 4 | tr -d B)
 ROOT_OFFSET=$(echo "$PARTED_OUT" | grep -e '^2:' | cut -d':' -f 2 | tr -d B)
 ROOT_LENGTH=$(echo "$PARTED_OUT" | grep -e '^2:' | cut -d':' -f 4 | tr -d B)
 
-if [ ! -f /dev/loop0 ]; then
+if [ ! -b /dev/loop0 ]; then
 	mknod -m 660 /dev/loop0 b 7 0
 fi
-if [ ! -f /dev/loop1 ]; then
+if [ ! -b /dev/loop1 ]; then
 	mknod -m 660 /dev/loop1 b 7 1
 fi
-if [ ! -f /dev/loop2 ]; then
+if [ ! -b /dev/loop2 ]; then
 	mknod -m 660 /dev/loop2 b 7 2
 fi
-if [ ! -f /dev/loop3 ]; then
+if [ ! -b /dev/loop3 ]; then
 	mknod -m 660 /dev/loop3 b 7 3
 fi
 
