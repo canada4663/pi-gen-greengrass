@@ -45,12 +45,19 @@ BOOT_LENGTH=$(echo "$PARTED_OUT" | grep -e '^1:' | cut -d':' -f 4 | tr -d B)
 ROOT_OFFSET=$(echo "$PARTED_OUT" | grep -e '^2:' | cut -d':' -f 2 | tr -d B)
 ROOT_LENGTH=$(echo "$PARTED_OUT" | grep -e '^2:' | cut -d':' -f 4 | tr -d B)
 
-mknod -m 660 /dev/loop0 b 7 0
-mknod -m 660 /dev/loop1 b 7 1
-mknod -m 660 /dev/loop2 b 7 2
-mknod -m 660 /dev/loop3 b 7 3
-ls -lart /dev/
-ls -lart ${STAGE_WORK_DIR}
+if [ ! -f /dev/loop0 ]; then
+	mknod -m 660 /dev/loop0 b 7 0
+fi
+if [ ! -f /dev/loop1 ]; then
+	mknod -m 660 /dev/loop1 b 7 1
+fi
+if [ ! -f /dev/loop2 ]; then
+	mknod -m 660 /dev/loop2 b 7 2
+fi
+if [ ! -f /dev/loop3 ]; then
+	mknod -m 660 /dev/loop3 b 7 3
+fi
+
 BOOT_DEV=$(losetup --show -v -f -o "${BOOT_OFFSET}" --sizelimit "${BOOT_LENGTH}" "${IMG_FILE}")
 ROOT_DEV=$(losetup --show -f -o "${ROOT_OFFSET}" --sizelimit "${ROOT_LENGTH}" "${IMG_FILE}")
 echo "/boot: offset $BOOT_OFFSET, length $BOOT_LENGTH"
