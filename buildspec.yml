@@ -14,18 +14,19 @@ env:
 
 phases:
   install:
+    runtime-versions:
+      java: corretto8
     commands:
-      - dpkg --add-architecture i386
-      - apt update
-      - apt upgrade -y
-      - apt install -y coreutils quilt parted qemu-user-static:i386 debootstrap zerofree pxz zip dosfstools bsdtar libcap2-bin grep rsync xz-utils file git curl xxd make kmod
+      #- yum check-update
+      #- yum -y update
+      - yum -y install coreutils quilt quilt.noarch parted debootstrap zerofree qemu-user-static pxz zip dosfstools bsdtar libcap2-bin grep rsync xz-utils file git curl make kmod vim-common xz 
   #pre_build:
     #commands:
       # - command
   build:
     commands:
-      ./build.sh -c extliburls
-      # - command
+      - sed -i 's/^dependencies_check/#dependencies_check/' ./build.sh
+      - ./build.sh -c extliburls
   #post_build:
     #commands:
       # - command
@@ -36,6 +37,6 @@ artifacts:
   #name: $(date +%Y-%m-%d)
   #discard-paths: yes
   #base-directory: location
-#cache:
-  #paths:
-    # - paths
+cache:
+  paths:
+    - ./work/**/*
