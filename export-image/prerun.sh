@@ -10,7 +10,7 @@ rm -rf "${ROOTFS_DIR}"
 mkdir -p "${ROOTFS_DIR}"
 
 BOOT_SIZE=$(du --apparent-size -s "${EXPORT_ROOTFS_DIR}/boot" --block-size=1 | cut -f 1)
-BOOT_SIZE="$((256 * 1024 * 1024))"
+BOOT_SIZE="$((300 * 1024 * 1024))"
 TOTAL_SIZE=$(du --apparent-size -s "${EXPORT_ROOTFS_DIR}" --exclude var/cache/apt/archives --block-size=1 | cut -f 1)
 
 ROUND_SIZE="$((4 * 1024 * 1024))"
